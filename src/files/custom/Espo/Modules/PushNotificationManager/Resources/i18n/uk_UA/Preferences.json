@@ -1,0 +1,9 @@
+{
+    "fields": {
+        "receivePushNotifications": "Отримувати push-сповіщення",
+        "defaultPushNotificationProvider": "Провайдер push-сповіщень за замовчуванням"
+    },
+    "labels": {
+        "PushNotifications": "Push-сповіщення"
+    }
+}
