@@ -1,0 +1,9 @@
+{
+    "providers": [
+        "__APPEND__",
+        {
+            "name": "TelegramBot",
+            "disabled": false
+        }
+    ]
+}
