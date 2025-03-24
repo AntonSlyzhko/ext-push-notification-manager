@@ -1,9 +1,7 @@
 {
-    "providers": [
-        "__APPEND__",
-        {
-            "name": "TelegramBot",
-            "disabled": false
-        }
-    ]
+    "TelegramBot": {
+        "disabled": false,
+        "senderImplementationClassName": "",
+        "userEligibilityCheckerImplementationClassName": ""
+    }
 }
