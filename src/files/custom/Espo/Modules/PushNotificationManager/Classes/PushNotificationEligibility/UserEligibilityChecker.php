@@ -9,7 +9,7 @@ use Espo\Entities\User;
  *
  * @noinspection PhpUnused
  */
-interface UserPushNotificationEligibilityChecker
+interface UserEligibilityChecker
 {
     public function check(User $user, string $provider): bool;
 }
