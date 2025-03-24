@@ -11,5 +11,5 @@ use Espo\Entities\User;
  */
 interface UserEligibilityChecker
 {
-    public function check(User $user, string $provider): bool;
+    public function check(User $user): bool;
 }
