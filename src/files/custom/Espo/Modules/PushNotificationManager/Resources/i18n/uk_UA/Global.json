@@ -1,0 +1,10 @@
+{
+    "scopeNames": {
+        "PushNotification": "Push-сповіщення",
+        "PushNotificationTemplate": "Шаблон push-сповіщення"
+    },
+    "scopeNamesPlural": {
+        "PushNotification": "Push-сповіщення",
+        "PushNotificationTemplate": "Шаблони push-сповіщень"
+    }
+}

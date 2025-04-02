@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "Create PushNotificationTemplate": "Створити шаблон push-сповіщення"
+    },
+    "fields": {
+        "name": "Назва",
+        "body": "Тіло",
+        "entityType": "Тип сутності",
+        "variables": "Змінні"
+    }
+}

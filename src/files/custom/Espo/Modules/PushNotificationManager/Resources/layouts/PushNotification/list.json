@@ -1,0 +1,26 @@
+[
+    {
+        "name": "name",
+        "link": true
+    },
+    {
+        "name": "pushNotificationTemplate",
+        "width": 16
+    },
+    {
+        "name": "to",
+        "width": 16
+    },
+    {
+        "name": "parent",
+        "width": 16
+    },
+    {
+        "name": "status",
+        "width": 16
+    },
+    {
+        "name": "createdAt",
+        "width": 16
+    }
+]

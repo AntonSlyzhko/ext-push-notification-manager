@@ -1,0 +1,37 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                },
+                {
+                    "name": "status"
+                }
+            ],
+            [
+                {
+                    "name": "parent"
+                },
+                {
+                    "name": "to"
+                }
+            ],
+            [
+                {
+                    "name": "pushNotificationTemplate"
+                },
+                {
+                    "name": "sentAt"
+                }
+            ],
+            [
+                {
+                    "name": "templateData"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    }
+]

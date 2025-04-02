@@ -1,0 +1,17 @@
+[
+    {
+        "label": "",
+        "rows": [
+            [
+                {
+                    "name":"name"
+                },
+                {
+                    "name":"entityType"
+                }
+            ],
+            [{"name":"variables","fullWidth":true, "view": "Template.Fields.Variables"}],
+            [{"name":"body","fullWidth":true}]
+        ]
+    }
+]

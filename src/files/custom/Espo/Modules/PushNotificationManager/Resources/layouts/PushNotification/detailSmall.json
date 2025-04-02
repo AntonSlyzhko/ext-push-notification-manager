@@ -1,0 +1,28 @@
+[
+    {
+        "rows": [
+            [
+                {
+                    "name": "name"
+                }
+            ],
+            [
+                {
+                    "name": "status"
+                }
+            ],
+            [
+                {
+                    "name": "to"
+                }
+            ],
+            [
+                {
+                    "name": "parent"
+                }
+            ]
+        ],
+        "style": "default",
+        "label": ""
+    }
+]

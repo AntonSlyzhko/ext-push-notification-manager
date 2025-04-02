@@ -1,0 +1,37 @@
+{
+    "fields": {
+        "name": {
+            "type": "varchar",
+            "required": true,
+            "pattern": "$noBadCharacters"
+        },
+        "body": {
+            "type": "wysiwyg",
+            "required": true,
+            "view": "views/template/fields/body"
+        },
+        "entityType": {
+            "type": "enum",
+            "required": true,
+            "translation": "Global.scopeNames",
+            "view": "views/template/fields/entity-type"
+        },
+        "createdAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "modifiedAt": {
+            "type": "datetime",
+            "readOnly": true
+        },
+        "variables": {
+            "type": "base",
+            "notStorable": true,
+            "tooltip": true
+        }
+    },
+    "collection": {
+        "orderBy": "createdAt",
+        "order": "desc"
+    }
+}

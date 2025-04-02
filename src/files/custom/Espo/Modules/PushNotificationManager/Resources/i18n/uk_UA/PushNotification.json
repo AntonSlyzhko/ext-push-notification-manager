@@ -1,0 +1,16 @@
+{
+    "labels": {
+        "Create PushNotification": "Створити push-сповіщення"
+    },
+    "fields": {
+        "name": "Назва",
+        "pushNotificationTemplate": "Шаблон",
+        "to": "До",
+        "status": "Статус",
+        "sentAt": "Відправлено у"
+    },
+    "links": {
+        "pushNotificationTemplate": "Шаблон",
+        "to": "До"
+    }
+}
