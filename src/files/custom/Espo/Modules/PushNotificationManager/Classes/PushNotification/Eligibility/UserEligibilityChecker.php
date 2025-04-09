@@ -1,6 +1,6 @@
 <?php
 
-namespace Espo\Modules\PushNotificationManager\Classes\PushNotificationEligibility;
+namespace Espo\Modules\PushNotificationManager\Classes\PushNotification\Eligibility;
 
 use Espo\Entities\User;
 

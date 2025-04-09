@@ -1,6 +1,6 @@
 <?php
 
-namespace Espo\Modules\PushNotificationManager\Classes\PushNotificationSender;
+namespace Espo\Modules\PushNotificationManager\Classes\PushNotification\Sender;
 
 use Espo\Modules\PushNotificationManager\Entities\PushNotification;
 
