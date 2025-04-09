@@ -5,10 +5,8 @@ class DefaultPushNotificationProviderFieldView extends EnumFieldView {
     setupOptions() {
         super.setupOptions();
 
-        const providers = this.getMetadata().get(`app.pushNotificationProviders`, {});
-        this.params.options = Object.keys(providers)
-            .filter(provider => !providers[provider].disabled);
-        this.params.options.unshift("");
+        const providers = this.getHelper().getAppParam('availablePushNotificationProviders') || [];
+        this.params.options = ['', ...providers];
     }
 }
 
