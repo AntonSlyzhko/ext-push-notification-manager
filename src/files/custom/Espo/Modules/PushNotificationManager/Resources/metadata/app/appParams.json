@@ -1,0 +1,5 @@
+{
+    "availablePushNotificationProviders": {
+        "className": "Espo\\Modules\\PushNotificationManager\\Classes\\AppParams\\AvailablePushNotificationProviders"
+    }
+}
