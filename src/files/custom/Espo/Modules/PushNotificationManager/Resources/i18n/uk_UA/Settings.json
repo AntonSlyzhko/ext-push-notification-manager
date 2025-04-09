@@ -1,0 +1,8 @@
+{
+    "fields": {
+        "availablePushNotificationProviders": "Провайдери push-сповіщень"
+    },
+    "tooltips": {
+        "availablePushNotificationProviders": "Відсортований список по пріоритетності"
+    }
+}

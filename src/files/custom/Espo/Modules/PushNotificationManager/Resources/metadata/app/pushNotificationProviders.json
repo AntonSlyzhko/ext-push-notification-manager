@@ -1,6 +1,5 @@
 {
     "TelegramBot": {
-        "disabled": false,
         "senderImplementationClassName": "",
         "userEligibilityCheckerImplementationClassName": ""
     }

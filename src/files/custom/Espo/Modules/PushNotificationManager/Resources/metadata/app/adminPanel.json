@@ -1,0 +1,14 @@
+{
+    "system": {
+        "itemList": [
+            "__APPEND__",
+            {
+                "url": "#Admin/pushNotifications",
+                "label": "Push Notifications",
+                "iconClass": "fas fa-mobile-screen-button",
+                "description": "pushNotifications",
+                "recordView": "push-notification-manager:views/admin/push-notifications"
+            }
+        ]
+    }
+}
