@@ -11,12 +11,12 @@ class MetadataProvider
 {
     /** @var ?string[] */
     private ?array $pushNotificationProvidersCache = null;
-    /** @var array<string, bool> */
-    private array $isDisabledCache = [];
     /** @var array<string, ?class-string> */
     private array $senderImplementationClassNameCache = [];
     /** @var array<string, ?class-string> */
     private array $userEligibilityCheckerImplementationClassNameCache = [];
+    /** @var ?class-string<ProviderResolver> */
+    private ?string $providerResolverImplementationClassNameCache;
 
     public function __construct(
         private Metadata $metadata
@@ -38,15 +38,6 @@ class MetadataProvider
     public function hasPushNotificationProvider(string $provider): bool
     {
         return in_array($provider, $this->getPushNotificationProviders());
-    }
-
-    public function isPushNotificationProviderDisabled(string $provider): bool
-    {
-        if (!array_key_exists($provider, $this->isDisabledCache)) {
-            $this->isDisabledCache[$provider] = $this->metadata->get("app.pushNotificationProviders.$provider.disabled", true);
-        }
-
-        return $this->isDisabledCache[$provider];
     }
 
     /**
@@ -78,7 +69,9 @@ class MetadataProvider
      */
     public function getProviderResolverImplementationClassName(): ?string
     {
-        return $this->metadata->get("app.pushNotificationProviders.providerResolverImplementationClassName");
+        if (!isset($this->providerResolverImplementationClassNameCache)) {
+            $this->providerResolverImplementationClassNameCache = $this->metadata->get("app.pushNotificationProviders.providerResolverImplementationClassName");
+        }
+        return $this->providerResolverImplementationClassNameCache;
     }
-
 }
