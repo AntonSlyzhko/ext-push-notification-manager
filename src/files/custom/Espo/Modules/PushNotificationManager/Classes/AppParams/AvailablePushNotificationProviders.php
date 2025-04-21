@@ -2,7 +2,7 @@
 
 namespace Espo\Modules\PushNotificationManager\Classes\AppParams;
 
-use Espo\Modules\PushNotificationManager\Tools\PushNotification\MetadataProvider;
+use Espo\Modules\PushNotificationManager\Tools\PushNotification\ConfigDataProvider;
 use Espo\Tools\App\AppParam;
 
 /**
@@ -11,7 +11,7 @@ use Espo\Tools\App\AppParam;
 class AvailablePushNotificationProviders implements AppParam
 {
     public function __construct(
-        private MetadataProvider $metadataProvider
+        private ConfigDataProvider $configDataProvider
     ) {}
 
     /**
@@ -19,6 +19,6 @@ class AvailablePushNotificationProviders implements AppParam
      */
     public function get(): array
     {
-        return $this->metadataProvider->getAvailablePushNotificationProviders();
+        return $this->configDataProvider->getAvailablePushNotificationProviders();
     }
 }

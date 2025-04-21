@@ -2,7 +2,6 @@
 
 namespace Espo\Modules\PushNotificationManager\Tools\PushNotification;
 
-use Espo\Core\Utils\Config;
 use Espo\Core\Utils\Metadata;
 use Espo\Modules\PushNotificationManager\Classes\PushNotification\Eligibility\UserEligibilityChecker;
 use Espo\Modules\PushNotificationManager\Classes\PushNotification\Provider\ProviderResolver;
@@ -20,8 +19,7 @@ class MetadataProvider
     private array $userEligibilityCheckerImplementationClassNameCache = [];
 
     public function __construct(
-        private Metadata $metadata,
-        private Config $config
+        private Metadata $metadata
     ) {}
 
     /**
@@ -83,14 +81,4 @@ class MetadataProvider
         return $this->metadata->get("app.pushNotificationProviders.providerResolverImplementationClassName");
     }
 
-    /**
-     * @return string[]
-     */
-    public function getAvailablePushNotificationProviders(): array
-    {
-        return array_values(array_filter(
-            $this->config->get('availablePushNotificationProviders', []),
-            fn (string $provider) => $this->hasPushNotificationProvider($provider)
-        ));
-    }
 }
