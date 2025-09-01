@@ -7,37 +7,32 @@ use Espo\Modules\PushNotificationManager\Classes\PushNotification\Eligibility\Us
 use Espo\Modules\PushNotificationManager\Classes\PushNotification\Provider\ProviderResolver;
 use Espo\Modules\PushNotificationManager\Classes\PushNotification\Sender\Sender as Sender;
 
-class MetadataProvider
+final class MetadataProvider
 {
-    /** @var ?string[] */
-    private ?array $pushNotificationProvidersCache = null;
-    /** @var array<string, ?class-string> */
-    private array $senderImplementationClassNameCache = [];
-    /** @var array<string, ?class-string> */
-    private array $userEligibilityCheckerImplementationClassNameCache = [];
-    /** @var ?class-string<ProviderResolver> */
-    private ?string $providerResolverImplementationClassNameCache;
-
     public function __construct(
-        private Metadata $metadata
+        private readonly Metadata $metadata
     ) {}
 
     /**
      * @return string[]
      */
-    private function getPushNotificationProviders(): array
+    public function getPushNotificationProviders(): array
     {
-        if ($this->pushNotificationProvidersCache === null) {
-            $this->pushNotificationProvidersCache = array_keys(
-                $this->metadata->get('app.pushNotificationProviders', [])
-            );
-        }
-        return $this->pushNotificationProvidersCache;
+        /** @var array<string, array<string, mixed>> $providers */
+        $providers = $this->metadata->get('app.pushNotificationProviders', []);
+
+        uasort(
+            $providers,
+            fn(array $a, array $b): int =>
+                ($a['order'] ?? PHP_INT_MAX) <=> ($b['order'] ?? PHP_INT_MAX)
+        );
+
+        return array_keys($providers);
     }
 
     public function hasPushNotificationProvider(string $provider): bool
     {
-        return in_array($provider, $this->getPushNotificationProviders());
+        return in_array($provider, $this->getPushNotificationProviders(), true);
     }
 
     /**
@@ -45,11 +40,7 @@ class MetadataProvider
      */
     public function getSenderImplementationClassName(string $provider): ?string
     {
-        if (!array_key_exists($provider, $this->senderImplementationClassNameCache)) {
-            $this->senderImplementationClassNameCache[$provider] = $this->metadata->get("app.pushNotificationProviders.$provider.senderImplementationClassName");
-        }
-
-        return $this->senderImplementationClassNameCache[$provider];
+        return $this->metadata->get("app.pushNotificationProviders.$provider.senderImplementationClassName");
     }
 
     /**
@@ -57,11 +48,7 @@ class MetadataProvider
      */
     public function getUserEligibilityCheckerImplementationClassName(string $provider): ?string
     {
-        if (!array_key_exists($provider, $this->userEligibilityCheckerImplementationClassNameCache)) {
-            $this->userEligibilityCheckerImplementationClassNameCache[$provider] = $this->metadata->get("app.pushNotificationProviders.$provider.userEligibilityCheckerImplementationClassName");
-        }
-
-        return $this->userEligibilityCheckerImplementationClassNameCache[$provider];
+        return $this->metadata->get("app.pushNotificationProviders.$provider.userEligibilityCheckerImplementationClassName");
     }
 
     /**
@@ -69,9 +56,6 @@ class MetadataProvider
      */
     public function getProviderResolverImplementationClassName(): ?string
     {
-        if (!isset($this->providerResolverImplementationClassNameCache)) {
-            $this->providerResolverImplementationClassNameCache = $this->metadata->get("app.pushNotificationProviders.providerResolverImplementationClassName");
-        }
-        return $this->providerResolverImplementationClassNameCache;
+        return $this->metadata->get("app.pushNotificationProviders.providerResolverImplementationClassName");
     }
 }

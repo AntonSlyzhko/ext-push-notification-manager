@@ -5,8 +5,7 @@
             "default": false
         },
         "defaultPushNotificationProvider": {
-            "type": "enum",
-            "view": "push-notification-manager:views/preferences/fields/default-push-notification-provider"
+            "type": "enum"
         }
     }
 }

@@ -1,6 +1,7 @@
 {
     "TelegramBot": {
-        "senderImplementationClassName": "",
-        "userEligibilityCheckerImplementationClassName": ""
+        "order": 1,
+        "senderImplementationClassName": "some class",
+        "userEligibilityCheckerImplementationClassName": "some class"
     }
 }

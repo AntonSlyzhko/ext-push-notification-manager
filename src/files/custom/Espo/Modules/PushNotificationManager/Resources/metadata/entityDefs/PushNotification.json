@@ -66,11 +66,9 @@
         "orderBy": "createdAt",
         "order": "desc",
         "textFilterFields": [
-            "name",
-            "to.name"
+            "name"
         ],
         "fullTextSearch": false,
         "countDisabled": true
-    },
-    "optimisticConcurrencyControl": false
+    }
 }

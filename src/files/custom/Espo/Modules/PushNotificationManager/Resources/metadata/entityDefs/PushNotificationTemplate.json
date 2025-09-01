@@ -13,6 +13,7 @@
         "entityType": {
             "type": "enum",
             "required": true,
+            "readOnlyAfterCreate": true,
             "translation": "Global.scopeNames",
             "view": "views/template/fields/entity-type"
         },

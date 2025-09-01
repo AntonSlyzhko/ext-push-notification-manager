@@ -1,0 +1,10 @@
+{
+    "additionalBuilderClassNameList": [
+        "__APPEND__",
+        "Espo\\Modules\\PushNotificationManager\\Classes\\Utils\\Metadata\\AdditionalBuilder\\DefaultPushNotificationProviderOptions"
+    ],
+    "frontendHiddenPathList": [
+        "__APPEND__",
+        ["app", "pushNotificationProviders"]
+    ]
+}

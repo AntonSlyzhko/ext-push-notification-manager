@@ -1,19 +1,5 @@
 {
     "controller": "controllers/record",
     "iconClass": "fas fa-file",
-    "dynamicLogic": {
-        "fields": {
-            "sentAt": {
-                "visible": {
-                    "conditionGroup": [
-                        {
-                            "type": "equals",
-                            "attribute": "status",
-                            "value": "Sent"
-                        }
-                    ]
-                }
-            }
-        }
-    }
+    "createDisabled": true
 }

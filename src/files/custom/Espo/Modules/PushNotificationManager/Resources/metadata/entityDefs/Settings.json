@@ -1,9 +1,0 @@
-{
-    "fields": {
-        "availablePushNotificationProviders": {
-            "type": "array",
-            "view": "push-notification-manager:views/settings/fields/available-push-notification-providers",
-            "tooltip": true
-        }
-    }
-}

@@ -1,0 +1,12 @@
+{
+    "adminMandatory": {
+        "scopeLevel": {
+            "PushNotificationTemplate": {
+                "create": "yes",
+                "read": "all",
+                "edit": "all",
+                "delete": "all"
+            }
+        }
+    }
+}

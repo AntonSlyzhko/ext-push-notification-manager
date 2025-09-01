@@ -12,16 +12,22 @@ use Espo\Modules\PushNotificationManager\Tools\PushNotification\MetadataProvider
 use Espo\ORM\EntityManager;
 use Espo\ORM\Name\Attribute;
 use Espo\ORM\Query\Part\Condition;
+use ReflectionClass;
+use ReflectionException;
+use RuntimeException;
 
 class ProviderResolverFactory
 {
     public function __construct(
-        private InjectableFactory $injectableFactory,
-        private MetadataProvider $metadataProvider,
-        private EntityManager $entityManager
+        private readonly InjectableFactory $injectableFactory,
+        private readonly MetadataProvider $metadataProvider,
+        private readonly EntityManager $entityManager
     ) {}
 
-    public function create(User $user): ProviderResolver
+    /**
+     * @throws ReflectionException
+     */
+    public function createForUser(User $user): ProviderResolver
     {
         $className = $this->getClassName();
 
@@ -46,10 +52,19 @@ class ProviderResolverFactory
 
     /**
      * @return class-string<ProviderResolver>
+     * @throws ReflectionException
+     * @throws RuntimeException
      */
     private function getClassName(): string
     {
-        return $this->metadataProvider->getProviderResolverImplementationClassName() ??
+        $className = $this->metadataProvider->getProviderResolverImplementationClassName() ??
             DefaultProviderResolver::class;
+
+        $class = new ReflectionClass($className);
+        if (!$class->implementsInterface(ProviderResolver::class)) {
+            throw new RuntimeException("Class '$className' does not implement 'ProviderResolver' interface.");
+        }
+
+        return $className;
     }
 }
