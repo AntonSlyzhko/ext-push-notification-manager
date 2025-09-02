@@ -28,6 +28,12 @@ class DefaultPushNotificationProviderOptions implements AdditionalBuilder
                 ($a->order ?? PHP_INT_MAX) <=> ($b->order ?? PHP_INT_MAX)
         );
 
-        $data->entityDefs->Preferences->fields->defaultPushNotificationProvider->options = array_keys($providers);
+        $options = array_keys($providers);
+
+        if ($options === [] || $options[0] !== '') {
+            array_unshift($options, '');
+        }
+
+        $data->entityDefs->Preferences->fields->defaultPushNotificationProvider->options = $options;
     }
 }

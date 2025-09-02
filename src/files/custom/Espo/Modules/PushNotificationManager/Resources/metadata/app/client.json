@@ -1,11 +1,6 @@
 {
     "scriptList": [
         "__APPEND__",
-        "client/custom/modules/push-notification-manager/lib/init.js",
-        "client/custom/modules/push-notification-manager/src/scripts/extend-preferences-layout.js"
-    ],
-    "developerModeScriptList": [
-        "__APPEND__",
-        "client/custom/modules/push-notification-manager/src/scripts/extend-preferences-layout.js"
+        "client/custom/modules/push-notification-manager/lib/init.js"
     ]
 }

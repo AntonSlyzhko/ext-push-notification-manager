@@ -1,0 +1,8 @@
+{
+    "viewSetupHandlers": {
+        "record/edit": [
+            "__APPEND__",
+            "push-notification-manager:view-setup-handlers/extend-preferences-layout"
+        ]
+    }
+}
