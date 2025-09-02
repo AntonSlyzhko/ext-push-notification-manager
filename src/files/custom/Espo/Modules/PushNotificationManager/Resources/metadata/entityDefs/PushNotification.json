@@ -1,17 +1,15 @@
 {
     "fields": {
-        "name": {
-            "type": "varchar",
-            "required": true,
-            "readOnly": true
+        "number": {
+            "type": "autoincrement",
+            "index": true,
+            "dbType": "bigint"
         },
         "provider": {
-            "type": "varchar",
-            "required": true
+            "type": "varchar"
         },
         "pushNotificationTemplate": {
-            "type": "link",
-            "required": true
+            "type": "link"
         },
         "templateData": {
             "type": "jsonObject"
@@ -47,6 +45,20 @@
                 "Failed": "danger"
             },
             "default": "Created"
+        },
+        "failReason": {
+            "type": "enum",
+            "options": [
+                "",
+                "InvalidState",
+                "ProviderNotFound",
+                "UserNotFound",
+                "ProviderNotResolved",
+                "UserNotEligible",
+                "SendError",
+                "UnexpectedError"
+            ],
+            "readOnly": true
         }
     },
     "links": {

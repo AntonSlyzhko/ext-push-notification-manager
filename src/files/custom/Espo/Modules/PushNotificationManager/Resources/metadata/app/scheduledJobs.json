@@ -1,0 +1,6 @@
+{
+    "SendPushNotifications": {
+        "name": "Send Push Notifications",
+        "jobClassName": "Espo\\Modules\\PushNotificationManager\\Classes\\Jobs\\SendPushNotifications"
+    }
+}
